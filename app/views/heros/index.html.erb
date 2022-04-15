@@ -1,0 +1,5 @@
+<% @heros.each do |hero| %>
+    <h1><%=  link_to hero.name, hero_path(hero) %></h1>
+<% end %>
+
+<%= link_to "Add Hero", new_hero_path%>

@@ -1,0 +1,7 @@
+<h1> <%= @hero.name %> </h1>
+<h2> <%= @hero.field %> </h2>
+<p> <%= @hero.description %> </p>
+
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_hero_path(@hero) %>
+<%= link_to "Delete", hero_path(@hero), method: :delete, data: {confirm: "Are you sure?"}%>
