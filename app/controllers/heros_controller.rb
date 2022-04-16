@@ -1,3 +1,4 @@
+require 'twilio-ruby'
 class HerosController < ApplicationController
   before_action :find_hero, only: [:show, :edit, :update, :destroy]
 
@@ -35,11 +36,24 @@ class HerosController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
+      account_sid = 'AC5c29e5fa23bf92283ea8d4310b067bb1'
+      auth_token = 'cca4ddf98da04422e7404492d7e7606e'
+      client = Twilio::REST::Client.new(account_sid, auth_token)
+
+      from = '+17409088086' # Your Twilio number
+      to = '+16415101376' # Your mobile phone number
+
+      client.messages.create(
+      from: from,
+      to: to,
+      body: "Hey friend!"
+      )
       redirect_to root_path
     else
       render 'new'
     end
   end
+
 
   private
     def hero_params
