@@ -1,8 +1,8 @@
 <%= simple_form_for @hero do |f|%>
-    <h1><%= f.input :name, label: "Hero Name" %></h1>
-    <h2><%= f.input :field, label: "Field" %></h2>
-    <p><%= f.input :description, label: "Heroic story" %></p>
-    <h4><%= f.input :phone, label: "Your phone number" %></h4>
-    <%= f.button :submit %>
-  <% end %>
-  
+  <h3><%= f.input :name, label: "Name of Hero", include_hidden: false%></h3>
+  <h3><%= f.input :field, label: "Field" %></h3>
+  <h3><%= f.file_field :hero_image, label: "Picture" %></h3>
+  <h3><%= f.input :stories, label: "Heroic Stories" %></h3>
+  <h3><%= f.input :phone, label: "Your Phone Number" %></h3>
+  <%= f.button :submit, "Nominate the Hero" %>
+<% end %>

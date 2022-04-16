@@ -1,5 +1,19 @@
-<% @heros.each do |hero| %>
-    <h1><%=  link_to hero.name, hero_path(hero) %></h1>
-<% end %>
+<% provide(:title, "Home") %>
+<head>
+<title><%= yield(:title)%> | Open Heroes</title>
+</head>
+<div class="container">
+<div class="row">
 
-<%= link_to "Add Hero", new_hero_path%>
+<% @heros.each do |hero| %>
+<div class="col-md-3">
+  <a href="/heros/<%= hero.id %>">
+    <%= image_tag hero.hero_image.url(:medium), class:"hero"%>
+  </a>
+  <h2><%= hero.name %></h2>
+  <br>
+  <br>
+</div>
+<% end %>
+</div>
+</div>

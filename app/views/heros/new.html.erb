@@ -1,3 +1,6 @@
- <h1> New Hero </h1>
-
- <%= render 'form' %>
+<% provide(:title, "Nominate a Hero") %>
+<head>
+<title><%= yield(:title)%> | Open Heroes</title>
+</head>
+<h1> Nominate a Hero </h1>
+<%= render 'form'%>

@@ -1,43 +1,48 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>OpenHeroes</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!---<title>Open Heroes</title>--->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <link rel = "shortcut icon" type="image/png" href ="./assets/manaluco.png">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <nav class= "navbar navbar-default"> 
-    <div class = "container">
-      <div class = "navbar-header">
-          <%= link_to "Open Heroes", root_path, class:"navbar-brand"%>
+
+    <nav>
+      <%= link_to root_path do %>
+      <%= image_tag "logo.png", class: "logo" %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Add hero", new_hero_path%></li>
+      <% end %>
+    </nav>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+      <div class="center">
+        <%= link_to "Nominate a Hero", new_hero_path%>
+        <%= link_to "About", about_path %>
+        <%= link_to "Contact Us", contact_path %>
       </div>
-
-      <ul class= "nav navbar-nav">
-        <% if user_signed_in? %>
-          <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-          <li> <%= link_to "Log In", new_user_session_path%></li>
-        <% end %>
-      </ul>
-
-      <ul class= "nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li> <%= link_to "Recommend a Hero", new_hero_path %> </li>
-        <% end %>
-      </ul> 
     </div>
-  </nav>
 
+  <span id="hamburger" onclick="openNav()">&#9776;</span>
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "100%";
+  }
 
-  </na>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+
+  <div class="content">
     <%= yield %>
+  </div>
   </body>
 </html>

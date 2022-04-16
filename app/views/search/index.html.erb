@@ -1,0 +1,13 @@
+<%= form_tag(search_index_path, method: "get") do %>
+<h2><%= label_tag(:query, "Search for:") %></h2>
+<%= text_field_tag(:query) %>
+<%= submit_tag("Search") %>
+<% end %>
+
+<% @heros.each do |heros| %>
+<div class="col-md-3">
+  <a href="/heros/<%= hero.id %>">
+    <%= image_tag hero.hero_image.url(:medium), class:"hero"%>
+  </a>
+</div>
+<% end %>

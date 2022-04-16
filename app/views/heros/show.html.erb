@@ -1,7 +1,19 @@
-<h1> <%= @hero.name %> </h1>
-<h2> <%= @hero.field %> </h2>
-<p> <%= @hero.description %> </p>
-
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_hero_path(@hero) %>
-<%= link_to "Delete", hero_path(@hero), method: :delete, data: {confirm: "Are you sure?"}%>
+<head>
+  <title><%= @hero.name %></title>
+</head>
+<div class="container">
+<div class="row">
+  <div class="col-md-4">
+  <%= image_tag @hero.hero_image.url(:hero_show), class: "hero-show" %>
+  </div>
+  <div class="col-md-8">
+  <h1><%= @hero.name %></h1>
+  <h2><%= @hero.field %></h2>
+  <p><%= simple_format(@hero.stories) %></p>
+  <% if user_signed_in? %>
+  <%= link_to "Edit", edit_hero_path(@hero) %>
+  <%= link_to "Delete", hero_path(@hero), method: :delete, data: {confirm: "Are you sure?"}%>
+  <% end %>
+</div>
+</div>
+</div>

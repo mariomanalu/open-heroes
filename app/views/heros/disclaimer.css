@@ -1,0 +1,35 @@
+body{
+  overflow: hidden;
+}
+
+h1{
+  font-size: 84px;
+  font-weight: bolder;
+  margin-bottom: 0px;
+  margin-top: 0px
+}
+
+h2{
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+h3, a {
+  font-size: 22px;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.disclaimer-content{
+  position:absolute;
+  top: 5%;
+  height: 100vh;
+  padding: 10px 10px;
+  left: 75px;
+  right: 75px;
+  text-align: center;
+  margin: 0;
+}

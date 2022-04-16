@@ -1,0 +1,63 @@
+body{
+  overflow: hidden;
+}
+
+h1{
+  font-size: 84px;
+  font-weight: bolder;
+}
+
+h2{
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+h3, a {
+  font-size: 22px;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.v1 {
+  position: absolute;
+  border-left: 2px solid white;
+  height: 245px;
+  left: 50%;
+  top:  80%;
+}
+
+.mail-left{
+  position: absolute;
+  left: 60% !important;
+  float: left;
+}
+
+.mail-right{
+  position: absolute;
+  right: 60% !important;
+  float: right;
+}
+
+.contact-content{
+  position:absolute;
+  top: 80px;
+  height: 100vh;
+  padding: 10px 10px;
+  left: 75px;
+  right: 75px !important;
+}
+
+.center-horizontal{
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50);
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  text-align: center;
+  top: 5%;
+  display: inline-block;
+}
