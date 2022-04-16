@@ -5,25 +5,25 @@ class HerosControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get root_path
     assert_response :success
-    assert_select "title", "Home | Open Heroes"
+    assert_select "title", "Home | Real Heroes"
   end
 
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "About | Open Heroes"
+    assert_select "title", "About | Real Heroes"
   end
 
   test "should get disclaimer" do
     get disclaimer_path
     assert_response :success
-    assert_select "title", "Disclaimer | Open Heroes"
+    assert_select "title", "Disclaimer | Real Heroes"
   end
 
   test "should get contact" do
     get contact_path
     assert_response :success
-    assert_select "title", "Contact | Open Heroes"
+    assert_select "title", "Contact | Real Heroes"
   end
 
   test "should save hero when a new hero is added" do
