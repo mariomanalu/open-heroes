@@ -36,18 +36,18 @@ class HerosController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
-      # account_sid = 'REDACTED'
-      # auth_token = 'REDACTED'
-      # client = Twilio::REST::Client.new(account_sid, auth_token)
+      account_sid = 'REDACTED'
+      auth_token = 'REDACTED'
+      client = Twilio::REST::Client.new(account_sid, auth_token)
 
-      # from = 'REDACTED' # Your Twilio number
-      # to = 'REDACTED' # Your mobile phone number
+      from = 'REDACTED' # Your Twilio number
+      to = 'REDACTED' # Your mobile phone number
 
-      # client.messages.create(
-      # from: from,
-      # to: to,
-      # body: "Hi there! Congratulations, your hero submission is successful. Your hero is on the Wall of Heroes!"
-      # )
+      client.messages.create(
+      from: from,
+      to: to,
+      body: "Hi there! Congratulations, your hero submission is successful. Your hero is on the Wall of Heroes!"
+      )
       redirect_to root_path
     else
       render 'new'
