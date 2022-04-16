@@ -36,17 +36,17 @@ class HerosController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
-      account_sid = 'AC5c29e5fa23bf92283ea8d4310b067bb1'
-      auth_token = 'cca4ddf98da04422e7404492d7e7606e'
+      account_sid = 'REDACTED'
+      auth_token = 'REDACTED'
       client = Twilio::REST::Client.new(account_sid, auth_token)
 
-      from = '+17409088086' # Your Twilio number
-      to = '+16415101376' # Your mobile phone number
+      from = 'REDACTED' # Your Twilio number
+      to = 'REDACTED' # Your mobile phone number
 
       client.messages.create(
       from: from,
       to: to,
-      body: "Hey friend!"
+      body: "Hi there! Congratulations, your hero submission is successful. Your hero is on the Wall of Heroes!"
       )
       redirect_to root_path
     else
